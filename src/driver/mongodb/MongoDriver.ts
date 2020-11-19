@@ -140,6 +140,12 @@ export class MongoDriver implements Driver {
      */
     protected validOptionNames: string[] = [
         "poolSize",
+        "maxPoolSize",
+        "tls",
+        "tlsCAFile",
+        "tlsCertificateKeyFile",
+        "url",
+        "auth",
         "ssl",
         "sslValidate",
         "sslCA",
@@ -186,8 +192,6 @@ export class MongoDriver implements Driver {
         "checkServerIdentity",
         "validateOptions",
         "appname",
-        // omit auth - we are building url from username and password
-        // "auth"
         "authMechanism",
         "compression",
         "fsync",
@@ -442,7 +446,7 @@ export class MongoDriver implements Driver {
             ? `${options.username}:${options.password}@`
             : "";
 
-        return `mongodb://${credentialsUrlPart}${options.host || "127.0.0.1"}:${options.port || "27017"}/${options.database || ""}`;
+        return options.url || `mongodb://${credentialsUrlPart}${options.host || "127.0.0.1"}:${options.port || "27017"}/${options.database || ""}`;
     }
 
     /**

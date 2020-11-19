@@ -23,6 +23,8 @@
   <br>
 </div>
 
+# This Fork changes the MongoDB driver to accept [options](https://github.com/mongodb/node-mongodb-native/blob/3.6/lib/mongo_client.js) defined in [node-mongodb-native@3.6](https://github.com/mongodb/node-mongodb-native/tree/3.6)
+
 TypeORM is an [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping)
 that can run in NodeJS, Browser, Cordova, PhoneGap, Ionic, React Native, NativeScript, Expo, and Electron platforms
 and can be used with TypeScript and JavaScript (ES5, ES6, ES7, ES8).

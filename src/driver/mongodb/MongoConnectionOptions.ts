@@ -48,6 +48,38 @@ export interface MongoConnectionOptions extends BaseConnectionOptions {
     readonly poolSize?: number;
 
     /**
+     * [options.maxPoolSize=10] **Only applies to the unified topology** The maximum number of connections that may be associated with a pool at a given time. This includes in use and available connections.
+     */
+    readonly maxPoolSize?: number;
+
+    /**
+     * [options.tls=false] Enable TLS connections
+     */
+
+    readonly tls?: boolean;
+    /**
+     *  * @param {object} [options.auth] Auth object. contains following:
+     *  * @param {string} [options.auth.user=undefined] The username for auth
+     *    @param {string} [options.auth.password=undefined] The password for auth
+     */
+    readonly auth?: {
+        readonly user?: string;
+        readonly password?: string;
+    }
+
+    /**
+     * [options.tlsCAFile] A path to file with either a single or bundle of certificate authorities to be considered trusted when making a TLS connection
+     */
+
+    readonly tlsCAFile?: string;
+
+    /**
+     * [options.tlsCertificateKeyFile] A path to the client certificate file or the client private key file; in the case that they both are needed, the files should be concatenated
+     */
+
+    readonly tlsCertificateKeyFile?: string;
+
+    /**
      * Use ssl connection (needs to have a mongod server with ssl support). Default: false
      */
     readonly ssl?: boolean;
