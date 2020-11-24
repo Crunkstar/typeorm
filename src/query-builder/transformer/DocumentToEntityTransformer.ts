@@ -69,10 +69,10 @@ export class DocumentToEntityTransformer {
         // get value from columns selections and put them into object
         metadata.ownColumns.forEach(column => {
             const valueInObject = document[column.databaseNameWithoutPrefixes];
-            if (valueInObject !== undefined &&
+            if ((valueInObject !== undefined &&
                 valueInObject !== null &&
                 column.propertyName &&
-                !column.isVirtual) {
+                !column.isVirtual) || (column.isNullable===true && valueInObject === null)) {
                 // const value = this.driver.prepareHydratedValue(valueInObject, column);
 
                 entity[column.propertyName] = valueInObject;
